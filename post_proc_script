@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+#SBATCH --job-name=post_proc
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --partition=lrgmem
+#SBATCH --time=2:00:0
+#SBATCH --mail-type=all
+#SBATCH --mail-user=aaiyer1@jhu.edu
+#SBATCH --account=cmeneve1
+./a.out | tee ./output_vel_proc.txt
+#Copy this file before it is overwritten
+cp post.out post.out.$PBS_JOBID
+
